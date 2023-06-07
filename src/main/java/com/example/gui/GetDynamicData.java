@@ -10,7 +10,7 @@ public class GetDynamicData {
     private int trafficFlow;
     private int[] csvValues;
     private boolean EmergencyVehicle;
-//    private
+    private String lane = "";
     public GetDynamicData(String filePath) {
 
         csvValues = new int[8];
@@ -42,13 +42,26 @@ public class GetDynamicData {
     public boolean getEmergencyData(int i){
         if(csvValues[i] == 1){
             EmergencyVehicle = true;
+            switch (i){
+                case 4:
+                    lane = "Parallel";
+                    break;
+                case 5:
+                    lane = "Parallel";
+                    break;
+                case 6:
+                    lane = "Vertical";
+                    break;
+                case 7:
+                    lane = "Vertical";
+            }
         }else{
             EmergencyVehicle = false;
         }
         return EmergencyVehicle;
     }
-    public String getLane(int i){
-        return "1";
+    public String getLane(){
+        return lane;
     }
     public int getData(String lane) {
         switch (lane) {

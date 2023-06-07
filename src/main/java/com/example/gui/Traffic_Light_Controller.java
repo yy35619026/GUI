@@ -1,5 +1,4 @@
 package com.example.gui;
-
 import java.awt.*;
 import java.util.Scanner;
 
@@ -17,30 +16,30 @@ public class Traffic_Light_Controller {
 
 
     public Traffic_Light_Controller() {
-//        boolean emergency;
         traffic_light_time.restTime();
         emergency = ai.getEmergencyVehicle(); //模擬緊急車輛通過
-        lane = ai.compareVerticalTrafficFlow();
-
-        if(emergency == true){
-            //無緊急車輛通過就正常
-            demermineState("Vertical", emergency, "Red");
+        if (emergency == true){
+            lane = ai.getLane();
+//            System.out.println(lane);
+            demermineState(lane, emergency, "Red");
         }else{
-            determineTime(Traffic_Light_time.LaneType.valueOf(lane));
-        }
-        if(emergency == false){
+            lane = ai.compareVerticalTrafficFlow();
             determineTime(Traffic_Light_time.LaneType.valueOf(lane));
         }
     }
+
+
     public void demermineState(String lane,boolean bool,String color){
         traffic_light.changeLight(lane,bool,color);
     }
-    //第二段貼這邊
+
+//第二段貼這邊
+
     public void determineTime(Traffic_Light_time.LaneType lane){
         traffic_light_time.changeTime(lane);
     }
 
     public void saveData(){
-        System.out.println("SaveData is worked.");
+
     }
 }

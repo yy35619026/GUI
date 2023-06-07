@@ -5,25 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c00d4b7a-6f03-408d-bef4-e7245425983f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gui/AI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gui/GetDynamicData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gui/GetStaticData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gui/Simulation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gui/Traffic_Light.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gui/Traffic_Light_Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gui/Traffic_Light_time.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gui/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticdata.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trafficFlow.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gui/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gui/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gui/GetDynamicData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gui/GetDynamicData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gui/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gui/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gui/Traffic_Light_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gui/Traffic_Light_Controller.java" afterDir="false" />
     </list>
     <list id="72a8e260-662a-41ca-a55f-41d36aa92341" name="Changes by fan9704" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,6 +103,18 @@
       <option name="presentableId" value="Default" />
       <updated>1685805620040</updated>
     </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1686144032961</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686144032961</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
 </project>

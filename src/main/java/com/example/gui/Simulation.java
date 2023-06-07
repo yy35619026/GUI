@@ -158,7 +158,7 @@ public class Simulation {
                 timer = new Timer(1000, LIGHT_task);//1000ms執行一次LIGHT_task任務
                 timer.start();
 
-                Traffic_Light_Controller tlc = new Traffic_Light_Controller();
+                new Traffic_Light_Controller();
 
                 drawArea.repaint();
             }

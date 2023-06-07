@@ -16,19 +16,24 @@ public class AI {
         System.out.println("-----------------------");
 
         getTrafficFlow("trafficFlow.csv");
-//        compareSameLevelTrafficFlow();
+        getTrafficFlow("trafficFlow.csv");
+        getTrafficFlow("trafficFlow.csv");
+        getTrafficFlow("trafficFlow.csv");
+        compareSameLevelTrafficFlow();
     }
     //get the traffic flow from yolov8
     public void getTrafficFlow(String filePath) {
         GetDynamicData getDynamicData = new GetDynamicData(filePath); // Create an instance of Yolov8 class
+
         eastLane = getDynamicData.getData("East"); // Get traffic volume for the East lane
         westLane = getDynamicData.getData("West"); // Get traffic volume for the West lane
         northLane = getDynamicData.getData("North"); // Get traffic volume for the North lane
         southLane = getDynamicData.getData("South"); // Get traffic volume for the South lane
+        
         for(int i = 4 ; i < 8 ; i++){
             Emergency = getDynamicData.getEmergencyData(i);
             if(Emergency == true){
-//                lane = getDynamicData.getEmergencyData();
+                lane = getDynamicData.getLane();
                 break;
             }
         }
@@ -68,10 +73,10 @@ public class AI {
         }
         return lane;
     }
-    public boolean getEmergencyVehicle(){
-        return Emergency;
-    }
     public String getLane(){
         return lane;
+    }
+    public boolean getEmergencyVehicle(){
+        return Emergency;
     }
 }
