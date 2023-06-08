@@ -28,7 +28,7 @@ public class Simulation {
     Button test = new Button("test");
     Button exit = new Button("Exit");
 
-    private int Greentime = 30;
+    private int Greentime = 5;
     private int Yellowtime = 5;
     private int Redtime = Greentime + Yellowtime;
     // Text Timer
@@ -90,8 +90,8 @@ public class Simulation {
                 g.fillOval(LINE_2, 160, C_SIZE, C_SIZE); // light 4-->燈號(東)
                 g.fillOval(LINE_1, 310, C_SIZE, C_SIZE); // light 12--燈號(西)
             }
-            if (CURRENT_STATE == 3){//南北綠燈 東西黃燈
-                g.setColor(Color.RED);//綠燈
+            if (CURRENT_STATE == 3){//南北紅燈 東西黃燈
+                g.setColor(Color.RED);//紅燈
                 g.fillOval(160, LINE_1, C_SIZE, C_SIZE); // light 1-->燈號(北)
                 g.fillOval(310, LINE_2, C_SIZE, C_SIZE); // light 9-->燈號(南)
                 g.setColor(Color.YELLOW);
@@ -119,12 +119,13 @@ public class Simulation {
                 } if (timeEastAndWest == 0 || timeNorthAndSouth == 0) {
                     STATE += 1;
                     if(STATE > 3){
-                        STATE-=3;
+                        STATE-=4;
                     }
                     CURRENT_STATE=STATE;
                     if (CURRENT_STATE == 0){//南北綠燈 東西紅燈
                         timeNorthAndSouth = Greentime;
                         timeEastAndWest = Redtime;
+
                     }else if(CURRENT_STATE == 1){//南北黃燈 東西紅燈
                         timeNorthAndSouth = Yellowtime;
 //                        timeEastAndWest = 3;
@@ -181,13 +182,16 @@ public class Simulation {
 
                 if(tlc.getLane()=="Vertical"){
                     CURRENT_STATE = 0;
-
-                    timeNorthAndSouth = tlc.getNsg();
-                    timeEastAndWest = tlc.getEwr();
+                    Greentime = tlc.getNsg();
+                    Redtime = tlc.getEwr();
+//                    timeNorthAndSouth = tlc.getNsg();
+//                    timeEastAndWest = tlc.getEwr();
                 }else{
                     CURRENT_STATE = 2;
-                    timeNorthAndSouth = tlc.getNsr();
-                    timeEastAndWest = tlc.getEwg();
+                    Greentime = tlc.getEwg();
+                    Redtime = tlc.getNsr();
+//                    timeNorthAndSouth = tlc.getNsr();
+//                    timeEastAndWest = tlc.getEwg();
                 }
 
                 drawArea.repaint();
