@@ -24,6 +24,8 @@ public class Simulation {
     Button start = new Button("Start");
     Button simulate = new Button("Simulate");
     Button stop = new Button("Stop");
+
+    Button test = new Button("test");
     Button exit = new Button("Exit");
 
     private int Greentime = 30;
@@ -158,7 +160,6 @@ public class Simulation {
                 timer = new Timer(1000, LIGHT_task);//1000ms執行一次LIGHT_task任務
                 timer.start();
 
-                new Traffic_Light_Controller();
 
                 drawArea.repaint();
             }
@@ -172,6 +173,36 @@ public class Simulation {
             }
         });
 
+        test.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Traffic_Light_Controller tlc = new Traffic_Light_Controller();
+
+                if(tlc.getLane()=="Vertical"){
+                    CURRENT_STATE = 0;
+
+                    timeNorthAndSouth = tlc.getNsg();
+                    timeEastAndWest = tlc.getEwr();
+                }else{
+                    CURRENT_STATE = 2;
+                    timeNorthAndSouth = tlc.getNsr();
+                    timeEastAndWest = tlc.getEwg();
+                }
+
+                drawArea.repaint();
+
+                System.out.println(tlc.getLane());
+
+                System.out.println(tlc.getEwr()+" EWR");
+                System.out.println(tlc.getEwg()+" EWG");
+
+                System.out.println(tlc.getNsg()+" NSG");
+                System.out.println(tlc.getNsr()+" NSR");
+
+
+            }
+        });
 
         //Exit按键響應事件
         exit.addActionListener(new ActionListener() {
@@ -186,6 +217,7 @@ public class Simulation {
         panel.add(start);
         panel.add(simulate);
         panel.add(stop);
+        panel.add(test);
         panel.add(exit);
 
 
@@ -223,6 +255,7 @@ public class Simulation {
         frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
+
     }
     public static void main(String[] args) {
         new Simulation().init();

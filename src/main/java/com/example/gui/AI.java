@@ -11,20 +11,28 @@ public class AI {
     private String lane;
     public AI(){
         //這裡是 new AI的流程要AI做的事情都在這邊添加
-//        getTrafficFlow("trafficFlow.csv");
         System.out.println("Connecting to Yolov8...");
         System.out.println("-----------------------");
-
         getTrafficFlow("trafficFlow.csv");
-        getTrafficFlow("trafficFlow.csv");
-        getTrafficFlow("trafficFlow.csv");
-        getTrafficFlow("trafficFlow.csv");
+//        getTrafficFlow("EastFlow.csv", "East");
+//        getTrafficFlow("WestFlow.csv", "West");
+//        getTrafficFlow("NorthFlow.csv", "North");
+//        getTrafficFlow("SouthFlow.csv", "South");
         compareSameLevelTrafficFlow();
     }
     //get the traffic flow from yolov8
     public void getTrafficFlow(String filePath) {
         GetDynamicData getDynamicData = new GetDynamicData(filePath); // Create an instance of Yolov8 class
-
+//        getDynamicData.readingfile(filePath);
+//        if (this.lane == "East"){
+//            eastLane = getDynamicData.getData("East"); // Get traffic volume for the East lane
+//        } else if (this.lane == "West") {
+//            westLane = getDynamicData.getData("West"); // Get traffic volume for the West lane
+//        } else if (this.lane == "North") {
+//            northLane = getDynamicData.getData("North"); // Get traffic volume for the North lane
+//        } else if (this.lane == "South") {
+//            southLane = getDynamicData.getData("South"); // Get traffic volume for the South lane
+//        }
         eastLane = getDynamicData.getData("East"); // Get traffic volume for the East lane
         westLane = getDynamicData.getData("West"); // Get traffic volume for the West lane
         northLane = getDynamicData.getData("North"); // Get traffic volume for the North lane
@@ -37,12 +45,6 @@ public class AI {
                 break;
             }
         }
-//        GetStaticData staticData = new GetStaticData(filePath);
-//
-//        eastLane = staticData.getData("East"); // Get traffic volume for the East lane
-//        westLane = staticData.getData("West"); // Get traffic volume for the West lane
-//        northLane = staticData.getData("North"); // Get traffic volume for the North lane
-//        southLane = staticData.getData("South"); // Get traffic volume for the South lane
     }
 
     public void compareSameLevelTrafficFlow() {

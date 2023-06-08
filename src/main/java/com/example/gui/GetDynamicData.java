@@ -1,5 +1,6 @@
 package com.example.gui;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,7 +13,7 @@ public class GetDynamicData {
     private boolean EmergencyVehicle;
     private String lane = "";
     public GetDynamicData(String filePath) {
-
+//        readingfile(filePath);
         csvValues = new int[8];
 
         try {
@@ -22,10 +23,64 @@ public class GetDynamicData {
 
             while ((line = reader.readLine()) != null && count < 4) {
                 String[] values = line.split(",");
-                storeCsvValue(values[0], count);
-                storeCsvValue(values[1], count + 4);
+                storeCsvValue(values[0], count);                //欄位-->車流量
+                storeCsvValue(values[1], count + 4);      //欄位-->緊急車輛
                 count++;
             }
+        } catch (IOException e) {
+//            e.printStackTrace();
+            GetStaticData getStaticData = new GetStaticData("staticdata.csv");
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void readingfile(String filePath){
+        csvValues = new int[8];
+
+        try {
+            reader = new BufferedReader(new FileReader(filePath));
+            String line;
+            int count = 0;
+
+            if(filePath == "EastFlow.csv"){
+                if ((line = reader.readLine()) != null) {
+                    String[] values = line.split(",");
+                    storeCsvValue(values[0], 0);                //欄位-->車流量
+                    storeCsvValue(values[1], 4);      //欄位-->緊急車輛
+                }
+            }else if (filePath == "WestFlow.csv") {
+                if ((line = reader.readLine()) != null) {
+                    String[] values = line.split(",");
+                    storeCsvValue(values[0], 1);                //欄位-->車流量
+                    storeCsvValue(values[1], 5);      //欄位-->緊急車輛
+                }
+            } else if (filePath == "NorthFlow.csv") {
+                if ((line = reader.readLine()) != null) {
+                    String[] values = line.split(",");
+                    storeCsvValue(values[0], 2);                //欄位-->車流量
+                    storeCsvValue(values[1], 6);      //欄位-->緊急車輛
+                }
+            } else if (filePath == "SouthFlow.csv") {
+                if ((line = reader.readLine()) != null) {
+                    String[] values = line.split(",");
+                    storeCsvValue(values[0], 3);                //欄位-->車流量
+                    storeCsvValue(values[1], 7);      //欄位-->緊急車輛
+                }
+            }
+//
+//
+//            while ((line = reader.readLine()) != null && count < 4) {
+//                String[] values = line.split(",");
+//                storeCsvValue(values[0], count);                //欄位-->車流量
+//                storeCsvValue(values[1], count + 4);      //欄位-->緊急車輛
+//                count++;
+//            }
         } catch (IOException e) {
 //            e.printStackTrace();
             GetStaticData getStaticData = new GetStaticData("staticdata.csv");
