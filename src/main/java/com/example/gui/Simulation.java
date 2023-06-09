@@ -15,7 +15,7 @@ public class Simulation {
 
 
     private Frame frame = new Frame("Traffic Light");
-    private final int TABALE_WIDTH = 1000;   //畫面寬度
+    private final int TABALE_WIDTH = 600;   //畫面寬度
     private final int TABALE_HEIGHT = 600;  //畫面高度
     private final int REC_WIDTH = 50;      //燈寬度
     private final int REC_HEIGHT = 50;      //燈高度
@@ -182,27 +182,27 @@ public class Simulation {
 
                 if(tlc.getLane()=="Vertical"){
                     CURRENT_STATE = 0;
-                    Greentime = tlc.getNsg();
-                    Redtime = tlc.getEwr();
-//                    timeNorthAndSouth = tlc.getNsg();
-//                    timeEastAndWest = tlc.getEwr();
+//                    Greentime = tlc.getNsg();
+//                    Redtime = tlc.getEwr();
+                    timeNorthAndSouth = tlc.getNsg();
+                    timeEastAndWest = tlc.getEwr();
                 }else{
                     CURRENT_STATE = 2;
-                    Greentime = tlc.getEwg();
-                    Redtime = tlc.getNsr();
-//                    timeNorthAndSouth = tlc.getNsr();
-//                    timeEastAndWest = tlc.getEwg();
+//                    Greentime = tlc.getEwg();
+//                    Redtime = tlc.getNsr();
+                    timeNorthAndSouth = tlc.getNsr();
+                    timeEastAndWest = tlc.getEwg();
                 }
 
                 drawArea.repaint();
 
-                System.out.println(tlc.getLane());
-
-                System.out.println(tlc.getEwr()+" EWR");
-                System.out.println(tlc.getEwg()+" EWG");
-
-                System.out.println(tlc.getNsg()+" NSG");
-                System.out.println(tlc.getNsr()+" NSR");
+//                System.out.println(tlc.getLane());
+//
+//                System.out.println(tlc.getEwr()+" EWR");
+//                System.out.println(tlc.getEwg()+" EWG");
+//
+//                System.out.println(tlc.getNsg()+" NSG");
+//                System.out.println(tlc.getNsr()+" NSR");
 
 
             }
